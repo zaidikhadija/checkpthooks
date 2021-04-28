@@ -1,13 +1,13 @@
-import React,{useState} from 'react'
+
 import StarRatingComponent from 'react-star-rating-component';
-const Rate = ({setRateSearch,rateSearch}) => {   
+const Rate = ({rating, setRateSearch,rateSearch}) => {   
     const  onStarClick= (nextValue) =>{
        setRateSearch(nextValue)
       };
        
         return (
             <div>
-             <StarRatingComponent starCount={5} value={rateSearch} onStarClick={onStarClick}/>
+             <StarRatingComponent starCount={5} value={rating} onStarClick={onStarClick}/>
             </div>
         )
     };

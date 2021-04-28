@@ -1,45 +1,30 @@
 
 import './App.css';
-import { movies } from "./movies.js"
-import MoviesLists from './MoviesList';
+import React from 'react';
+import MoviesListss from './MoviesList';
 import AddModal from  './AddModal';
-import Rate from  "./Rating";
+
 import Search from "./Search";
-import React, { useState} from 'react';
 
 
-function App (){
 
-  const [MoviesList , setMoviesList] = useState(movies);
-  const[searchTitle ,setSearchTitle]= useState("");
-  const [rateSearch, setRateSearch]=useState(0);
-
- const add = (newMovie) => {
-  setMoviesList(
-
-    MoviesList.concat(newMovie));
-
-  };
-
+function App (props){
     return (
     
 
-    <div className= 'App'>
+      <div className= 'App'>
       <h1> Movie App </h1>
-      <Search  movies ={MoviesList} searchTitle={searchTitle} rateSearch={rateSearch}/>
+      <Search searchTitle={props.searchTitle} setSearchTitle={props.setSearchTitle} setRateSearch={props.setRateSearch} rateSearch={props.rateSearch}/>
       
-      <MoviesLists movies ={MoviesList} ssearchTitle={searchTitle} Rate  rateSearch={rateSearch}  />
+      <MoviesListss MoviesList={props.MoviesList} searchTitle={props.searchTitle} rateSearch={props.rateSearch}  />
     
-      
+     <AddModal addNewMovie={props.addNewMovie} MoviesList ={props.MoviesList}/>
     
-     <AddModal AddMovie={add} movies ={MoviesList}/>
-    
-     <Rate setRateSearch={setRateSearch} rateSearch={rateSearch} />
 
   </div>
   
     );
     }
-  
+   
 
 export default App;

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: aqua;
+  background-color: blue;
+  
 }
 
 .App-logo {
@@ -37,12 +38,4 @@
     transform: rotate(360deg);
   }
 }
-Card{
-  text-align: center;
-}
-input{
-  min-width: 300px;
-}
-.movie{
-  margin:0 10px;
-}
+

@@ -2,7 +2,7 @@ import React from 'react';
 
 import MovieCard from './MovieCard';
 
-const MoviesList = ({moviesList, searchTitle, ratingSearch }) => {
+const MoviesListss = ({MoviesList, searchTitle, rateSearch }) => {
   return (
     <div
       className="movies-list"
@@ -13,11 +13,11 @@ const MoviesList = ({moviesList, searchTitle, ratingSearch }) => {
         flexWrap: 'wrap',
       }}
     >
-      {moviesList
+      {MoviesList
         .filter((el) =>
           
-            el.title.toLowerCase().includes(searchTitle.toLowerCase().trim()) &&
-            el.rating >= ratingSearch
+            el.title.toLowerCase().includes(searchTitle.toLowerCase().trim()) 
+             && el.rating >= rateSearch
         )
         .map((el, i) => (
           <MovieCard key={i} movie={el} />
@@ -26,4 +26,4 @@ const MoviesList = ({moviesList, searchTitle, ratingSearch }) => {
   );
 };
 
-export default MoviesList;
+export default MoviesListss;

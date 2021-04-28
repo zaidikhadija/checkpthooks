@@ -9,6 +9,7 @@ function  Addmodal(props){
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   const [image, setImage] = useState("");
   const handleChangeImage=(el)=>{setImage(el.target.value)};
   
@@ -20,13 +21,15 @@ function  Addmodal(props){
   
   const [rating, setRating] = useState("");
   const handleChangeRating=(el)=>{setRating(el.target.value)};
-    
-  const newMovie = [
-    {id:props.movies.length+1, image:image,title:title, year:year, rating:rating }]
- 
 
- 
-  
+  const [type, setType] = useState("");
+  const handleChangeType=(el)=>{setType(el.target.value)};
+
+  const [description, setDescription] = useState("");
+  const handleChangeDescription=(el)=>{setDescription(el.target.value)};
+    
+  const  newMovie =  {id:props.MoviesList.length+1, image, title, year, rating, type, description }
+
   return(
 <div>
   <Button variant ="primary" onClick={handleShow}>+</Button>
@@ -50,11 +53,17 @@ function  Addmodal(props){
   <div>
   <label className="input">Year:</label>
   <input type="text"name="year" value={year} onChange={handleChangeYear}/> </div>
+  <div>
+  <label className="input">Type:</label>
+  <input type="text"name="type" value={type} onChange={handleChangeType}/> </div>
+  <div>
+  <label className="input">Description:</label>
+  <input type="text"name="description" value={description} onChange={handleChangeDescription}/> </div>
   </div>
   </Modal.Body>
   <Modal.Footer>
     <Button variant="secondary" onClick={handleClose}>Close</Button>
-    <Button variant="primary" onClick ={()=>props.AddMovie(newMovie)}>Add Movie</Button>
+    <Button variant="primary" onClick ={(e)=>props.addNewMovie(e,newMovie)}>Add Movie</Button>
   </Modal.Footer>
   </Modal>
 </div>);
